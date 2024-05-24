@@ -1,0 +1,22 @@
+{
+  "name": "test-automation-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "e2e": "playwright test --headed",
+    "test:ci": "playwright test",
+    "ui": "playwright test --ui"
+  },
+  "keywords": [],
+  "author": "Marek Ostrowski",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.12.12"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7",
+    "uuid": "^9.0.1"
+  }
+}

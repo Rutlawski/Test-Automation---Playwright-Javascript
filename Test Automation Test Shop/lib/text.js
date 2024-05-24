@@ -1,0 +1,9 @@
+export const homepageTitle = "Generic Shop – Just another web shop";
+export const searchPhrase = "top";
+export const incorrectSearchPhrase = "....";
+export const cartHeaderTextWithOneProduct = "My Cart - zł 35.00";
+export const expectedEmptyCartMessage = "Your cart is currently empty.";
+export const expectedLoggedInMessage = "From your account dashboard you can view your recent orders, manage your shipping and billing addresses and edit your password and account details.";
+export const expectedEmptyErrorMessage = "Billing First name is a required field.";
+export const expectedIncorrectCartMessage = "Please enter a valid postcode / ZIP.";
+export const expectedOrderecievedMessage = "Order received";

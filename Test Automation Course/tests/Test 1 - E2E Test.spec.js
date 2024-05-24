@@ -1,0 +1,40 @@
+import test, { expect } from "@playwright/test";
+import { HomePage } from "../pages/Homepage";
+import { CartPage } from "../pages/CartPage";
+import { RegisterPage } from "../pages/RegisterPage";
+import { LoginPage } from "../pages/LoginPage";
+import { PaymentDataPage } from "../pages/PaymentDataPage";
+import { v4 as uuid } from "uuid";
+import { userPaymentData } from "../data/userPaymentData";
+import { PaymentPage } from "../pages/PaymentPage";
+import { creditCardDetails } from "../data/creditCardDetails";
+
+test("E2E Test - A full user journey", async({page}) => {
+    const homePage = new HomePage(page);
+    const cartPage = new CartPage(page);
+    const registerPage = new RegisterPage(page);
+    const loginPage = new LoginPage(page);
+    const paymentDataPage = new PaymentDataPage(page);
+    const paymentPage = new PaymentPage(page);
+    const mail = uuid() + "@gmail.com";
+    const password = uuid();
+    await homePage.openHomepageAndVerify();
+    await homePage.setDropdownValueAndVerify();
+    await homePage.addProductsToCartAndVerify(0);
+    await homePage.addProductsToCartAndVerify(1);
+    await homePage.addProductsToCartAndVerify(2);
+    await homePage.clickNavigationTab(2);
+    await cartPage.removeCheapestProductFromCart();
+    await cartPage.clickContinueToCheckout();
+    await loginPage.clickRegisterButton();
+    await registerPage.fillCredentialInputs(mail, password);
+    await registerPage.clickRegisterButton();
+    await paymentDataPage.fillPaymentDetails(userPaymentData);
+    await paymentDataPage.clickSaveAdressButton();
+    await paymentDataPage.clickContinueToPayment();
+    await paymentPage.useDiscountCode();
+    await paymentPage.submitDiscount();
+    await paymentPage.fillCreditCardDetails(creditCardDetails);
+    await paymentPage.clickPayButton();
+    await expect(page).toHaveURL(/\/thank-you/);
+})

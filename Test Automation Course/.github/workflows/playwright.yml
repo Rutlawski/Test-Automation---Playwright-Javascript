@@ -1,0 +1,18 @@
+name: Playwright Tests
+on:
+    push:
+        branches: [ main ]
+jobs:
+    playwrighttests:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: Run tests
+              run:
+                echo "Start the store application"
+                ./shopping-store-linux-amd64 &
+                echo "Install dependencies from lock file"
+                npm ci
+                echo "Run tests"
+                npm run test:ci

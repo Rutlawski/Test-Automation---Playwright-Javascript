@@ -1,4 +1,4 @@
-# Test Automation - Playwright+Javascript
+# Test Automation - Playwright + Javascript
 
 This repository contains some test cases written in **Javascript** in _Playwright_ during my learning.
 

@@ -9,6 +9,6 @@ ________
 
 To repozytorium zawiera kilka test case'ów, napisanych w **Javascript** w _Playwright_ podczas mojej nauki.
 
-Część "course" zawiera kilka małych testów, dotyczących różnych Web Elementów, testów API, oraz jedne większy E2E test (opisujący całą podróż użytkownika) na aplikacji sklepowej, dodanej do repo/
+Część "course" zawiera kilka małych testów, dotyczących różnych Web Elementów, testów API, oraz jeden większy E2E test (opisujący całą podróż użytkownika) na aplikacji sklepowej, dodanej do repo.
 Część "Test Shop" zawiera kilka specyficnych testów GUI na Web Elementach, oraz jeden większy test E2E.
 Projekty zawierają też plik Github Actions.
